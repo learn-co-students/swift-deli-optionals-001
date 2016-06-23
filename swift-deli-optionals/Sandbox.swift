@@ -32,13 +32,20 @@ func addName(name: String, toDeliLine: [String]?) -> [String] {
     return deliLine
 }
 
-func serveNextCustomerInDeliLine(lineArray: [String]) -> [String] {
-    if lineArray.count > 0 {
-        var deliLine = lineArray
-        let nextCustomer = deliLine.removeFirst()
-        print("\(nextCustomer), please step up!")
-        return deliLine
+func serveNextCustomerInDeliLine(lineArray: [String]?) -> [String]? {
+    if let lineArray = lineArray {
+        if lineArray.count > 0 {
+            var deliLine = lineArray
+            let nextCustomer = deliLine.removeFirst()
+            print("\(nextCustomer), please step up!")
+            return deliLine
+        } else {
+            print("The line is empty")
+            return nil
+        }
     } else {
-        return lineArray
+        print("The line is empty")
+        return nil
     }
+
 }
